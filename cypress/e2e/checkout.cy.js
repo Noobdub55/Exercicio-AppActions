@@ -32,6 +32,7 @@ describe('Fluxo de chekout loja ebac', () => {
         cy.wait('@removeItem')
             .its('response.statusCode')
             .should('eq', 200);
+            
 
 
   })
