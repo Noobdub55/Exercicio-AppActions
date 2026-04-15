@@ -26,10 +26,17 @@ jobs:
           wait-on: 'http://lojaebac.ebaconline.art.br'
         continue-on-error: true
 
-      - name: Preparar relatório
+      - name: Garantir relatório
         run: |
-          sed -i 's|/assets|assets|g' ./reports/mochawesome.html
-          cp ./reports/mochawesome.html ./reports/index.html
+          mkdir -p reports
+
+          if [ -f "./reports/mochawesome.html" ]; then
+            sed -i 's|/assets|assets|g' ./reports/mochawesome.html
+            cp ./reports/mochawesome.html ./reports/index.html
+          else
+            echo "<h1>Relatório não gerado</h1>" > ./reports/index.html
+          fi
+
           touch ./reports/.nojekyll
           ls -la ./reports
 
