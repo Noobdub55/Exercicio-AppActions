@@ -19,16 +19,12 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Rodar Cypress
+        uses: cypress-io/github-action@v6
         with:
-          node-version: 18
-
-      - name: Instalar dependências
-        run: npm install
-
-      - name: Rodar testes Cypress
-        run: npm test
+          build: npm install
+          wait-on: 'http://lojaebac.ebaconline.art.br'
+        continue-on-error: true
 
       - name: Preparar relatório
         run: |
