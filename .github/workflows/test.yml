@@ -33,6 +33,7 @@ jobs:
       - name: Preparar relatório
         run: |
           cp ./reports/mochawesome.html ./reports/index.html
+          touch ./reports/.nojekyll
           ls -la ./reports
 
       - name: Upload artifact
