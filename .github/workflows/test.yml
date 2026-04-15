@@ -2,6 +2,9 @@ name: Testes AppActions + Relatório
 
 on:
   push:
+    branches:
+      - main
+      - exercicios-AppActions-Intercept
 
 permissions:
   contents: read
