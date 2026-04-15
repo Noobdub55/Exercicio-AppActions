@@ -33,7 +33,7 @@ describe('Fluxo de chekout loja ebac', () => {
             .its('response.statusCode')
             .should('eq', 200);
             
-
+//alteração
 
   })
 
