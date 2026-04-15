@@ -32,6 +32,7 @@ jobs:
 
       - name: Preparar relatório
         run: |
+          sed -i 's|/assets|assets|g' ./reports/mochawesome.html
           cp ./reports/mochawesome.html ./reports/index.html
           touch ./reports/.nojekyll
           ls -la ./reports
