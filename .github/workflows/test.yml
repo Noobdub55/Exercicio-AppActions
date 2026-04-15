@@ -30,14 +30,15 @@ jobs:
       - name: Rodar testes Cypress
         run: npm test
 
-      - name: Ajustar nome para index.html
+      - name: Preparar relatório
         run: |
           cp ./reports/mochawesome.html ./reports/index.html
+          ls -la ./reports
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./reports
+          path: ./reports/
 
   deploy:
     needs: test
